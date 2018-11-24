@@ -92,13 +92,13 @@ speed=6;
 
 #--------------------------------------------------------------
 
-
+cordinates=2
 
 file = parser.fromstring(open('C:\\Users\\Prathvi\\Desktop\prj\\codes\\qgis\\85.kml', 'r').read())
-
+sides=len(file.Document.Placemark.Point);
 #file.Document.Placemark.Point.coordinates ==> to check once if want..
 
-num, cor = 2,4;
+num, cor = cordinates,sides;
 cords = [[0.0 for x in range(num)] for y in range(cor)] # create empty 4*3 matrix
 
 for x in range(cor):
@@ -148,7 +148,7 @@ print("number of extra centers required is",numcenter);
 print("_____________________________________________")
 
 # to make smaller sized total area
-num, cor = 2,4;
+num, cor = cordinates,sides;
 pressize=math.sqrt(presarea)
 g = geod.Direct(cords[0][0],cords[0][1], 90, pressize)
 g['lat2'],g['lon2']=cords[0][0],cords[0][1];
